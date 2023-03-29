@@ -8,8 +8,8 @@ import dagger.hilt.android.scopes.ViewModelScoped
 import javax.inject.Inject
 
 @ViewModelScoped
-class Repository@Inject constructor(private val remoteDataSource: RemoteDataSource,
-private val localDataSource: LocalDataSource) {
+class Repository@Inject constructor(private var remoteDataSource: RemoteDataSource,
+private var  localDataSource: LocalDataSource) {
 
      val remote=remoteDataSource
      val local=localDataSource

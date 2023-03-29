@@ -53,16 +53,10 @@ class ListFragment : Fragment() {
 
     }
 
-
-
-
-
     private fun setupRv() {
         binding.productRv.layoutManager=LinearLayoutManager(requireContext())
         binding.productRv.adapter=adapter
     }
-
-
 
     private fun observeLiveData() {
         binding.progressBar.visibility=View.VISIBLE
