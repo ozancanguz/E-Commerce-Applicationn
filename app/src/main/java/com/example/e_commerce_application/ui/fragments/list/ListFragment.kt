@@ -54,9 +54,12 @@ class ListFragment : Fragment() {
     }
 
     private fun observeLiveData() {
+        binding.progressBar.visibility=View.VISIBLE
         listViewModel.getAllProducts()
         listViewModel.productList.observe(viewLifecycleOwner, Observer {products ->
             adapter.setData(products)
+            binding.progressBar.visibility=View.INVISIBLE
+
         })
      }
 

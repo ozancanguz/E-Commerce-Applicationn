@@ -16,7 +16,7 @@ class ProductsAdapter : RecyclerView.Adapter<ProductsAdapter.ProductsViewHolder>
         fun bind(product: ProductItem) {
             binding.productName.text = product.title
             binding.productDescription.text = product.description
-            binding.productPrice.text = product.price.toString()
+            binding.productPrice.text = product.price.toString()+"$"
             binding.productImage.loadImage(product.imageUrl)
 
         }
