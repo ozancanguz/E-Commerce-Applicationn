@@ -8,6 +8,7 @@ import com.example.e_commerce_application.R
 import com.example.e_commerce_application.data.model.Product
 import com.example.e_commerce_application.data.model.ProductItem
 import com.example.e_commerce_application.databinding.ProductsRowLayoutBinding
+import com.example.e_commerce_application.util.Util.Companion.loadImage
 
 class ProductsAdapter : RecyclerView.Adapter<ProductsAdapter.ProductsViewHolder>() {
 
@@ -16,6 +17,8 @@ class ProductsAdapter : RecyclerView.Adapter<ProductsAdapter.ProductsViewHolder>
             binding.productName.text = product.title
             binding.productDescription.text = product.description
             binding.productPrice.text = product.price.toString()
+            binding.productImage.loadImage(product.imageUrl)
+
         }
     }
 
