@@ -7,10 +7,12 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.e_commerce_application.R
 import com.example.e_commerce_application.data.model.Product
 import com.example.e_commerce_application.data.model.ProductItem
+import com.example.e_commerce_application.data.model.entity.ProductEntity
 import com.example.e_commerce_application.databinding.ProductsRowLayoutBinding
 import com.example.e_commerce_application.util.Util.Companion.loadImage
+import com.example.e_commerce_application.viewmodel.ProductViewModel
 
-class ProductsAdapter : RecyclerView.Adapter<ProductsAdapter.ProductsViewHolder>() {
+class ProductsAdapter() : RecyclerView.Adapter<ProductsAdapter.ProductsViewHolder>() {
 
     inner class ProductsViewHolder(private val binding: ProductsRowLayoutBinding) : RecyclerView.ViewHolder(binding.root) {
         fun bind(product: ProductItem) {
@@ -18,6 +20,7 @@ class ProductsAdapter : RecyclerView.Adapter<ProductsAdapter.ProductsViewHolder>
             binding.productDescription.text = product.description
             binding.productPrice.text = product.price.toString()+"$"
             binding.productImage.loadImage(product.imageUrl)
+
 
         }
     }

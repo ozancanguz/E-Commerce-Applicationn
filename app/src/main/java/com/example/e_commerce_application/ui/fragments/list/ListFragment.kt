@@ -7,6 +7,8 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModelProvider
+import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.StaggeredGridLayoutManager
 import com.example.e_commerce_application.R
@@ -14,6 +16,7 @@ import com.example.e_commerce_application.data.adapter.ImagesAdapter
 import com.example.e_commerce_application.data.adapter.ProductsAdapter
 import com.example.e_commerce_application.databinding.FragmentListBinding
 import com.example.e_commerce_application.viewmodel.ListViewModel
+import com.example.e_commerce_application.viewmodel.ProductViewModel
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -23,10 +26,29 @@ class ListFragment : Fragment() {
 
     private val binding get() = _binding!!
 
-    private val adapter=ProductsAdapter()
-    private val imagesAdapter=ImagesAdapter()
-    private val listViewModel:ListViewModel by viewModels()
 
+    private lateinit var listViewModel: ListViewModel
+    private lateinit var productViewModel: ProductViewModel
+
+    private lateinit var adapter: ProductsAdapter
+
+
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+
+        listViewModel= ViewModelProvider(this)[ListViewModel::class.java]
+        productViewModel= ViewModelProvider(this)[ProductViewModel::class.java]
+         adapter=ProductsAdapter()
+
+        // setup recyclerview
+        setupRv()
+
+        // observe live data and update ui
+        observeLiveData()
+
+
+        super.onViewCreated(view, savedInstanceState)
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -36,20 +58,7 @@ class ListFragment : Fragment() {
         _binding = FragmentListBinding.inflate(inflater, container, false)
         val view = binding.root
 
-
-        // setup recyclerview
-        setupRv()
-
-        // observe live data and update ui
-        observeLiveData()
-
-
-
-
-
         return view
-
-
 
     }
 
@@ -68,5 +77,10 @@ class ListFragment : Fragment() {
         })
      }
 
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
+    }
 
 }
