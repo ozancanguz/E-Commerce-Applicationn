@@ -9,10 +9,26 @@
         android:id="@+id/listFragment"
         android:name="com.example.e_commerce_application.ui.fragments.list.ListFragment"
         android:label="List Fragment"
-        tools:layout="@layout/fragment_list" />
+        tools:layout="@layout/fragment_list" >
+        <action
+            android:id="@+id/action_listFragment_to_productDetailsFragment"
+            app:destination="@id/productDetailsFragment" />
+    </fragment>
     <fragment
         android:id="@+id/cardFragment"
         android:name="com.example.e_commerce_application.ui.fragments.card.CardFragment"
         android:label="Card Fragment"
         tools:layout="@layout/fragment_card" />
+    <fragment
+        android:id="@+id/productDetailsFragment"
+        android:name="com.example.e_commerce_application.ui.fragments.productDetails.ProductDetailsFragment"
+        android:label="Product Details"
+        tools:layout="@layout/fragment_product_details" >
+        <action
+            android:id="@+id/action_productDetailsFragment_to_listFragment"
+            app:destination="@id/listFragment" />
+        <argument
+            android:name="details"
+            app:argType="com.example.e_commerce_application.data.model.ProductItem" />
+    </fragment>
 </navigation>
