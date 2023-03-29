@@ -10,6 +10,7 @@ import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.StaggeredGridLayoutManager
 import com.example.e_commerce_application.R
+import com.example.e_commerce_application.data.adapter.ImagesAdapter
 import com.example.e_commerce_application.data.adapter.ProductsAdapter
 import com.example.e_commerce_application.databinding.FragmentListBinding
 import com.example.e_commerce_application.viewmodel.ListViewModel
@@ -23,6 +24,7 @@ class ListFragment : Fragment() {
     private val binding get() = _binding!!
 
     private val adapter=ProductsAdapter()
+    private val imagesAdapter=ImagesAdapter()
     private val listViewModel:ListViewModel by viewModels()
 
 
@@ -42,16 +44,25 @@ class ListFragment : Fragment() {
         observeLiveData()
 
 
+
+
+
         return view
 
 
 
     }
 
+
+
+
+
     private fun setupRv() {
         binding.productRv.layoutManager=LinearLayoutManager(requireContext())
         binding.productRv.adapter=adapter
     }
+
+
 
     private fun observeLiveData() {
         binding.progressBar.visibility=View.VISIBLE

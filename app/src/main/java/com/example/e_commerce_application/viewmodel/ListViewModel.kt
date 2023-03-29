@@ -17,12 +17,14 @@ class ListViewModel@Inject constructor(private val repository: Repository, appli
 
 
     val productList=MutableLiveData<Product>()
+    val imageList=MutableLiveData<Product>()
 
     fun getAllProducts(){
         viewModelScope.launch {
             val response=repository.remote.getAllProducts()
             if(response.isSuccessful){
                 productList.postValue(response.body())
+                imageList.postValue(response.body())
             }else{
                 Log.d("viewmodel","No data ")
             }
