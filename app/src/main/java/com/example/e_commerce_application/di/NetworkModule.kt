@@ -1,6 +1,6 @@
 package com.example.e_commerce_application.di
 
-import com.example.e_commerce_application.data.ProductApi
+import com.example.e_commerce_application.data.api.ProductApi
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
