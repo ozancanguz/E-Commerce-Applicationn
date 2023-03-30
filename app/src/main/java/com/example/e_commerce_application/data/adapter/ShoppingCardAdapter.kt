@@ -8,13 +8,16 @@ import androidx.recyclerview.widget.RecyclerView.Recycler
 import com.example.e_commerce_application.R
 import com.example.e_commerce_application.data.model.entity.ProductEntity
 import com.example.e_commerce_application.databinding.ShoppingCartItemRowLayoutBinding
+import com.example.e_commerce_application.viewmodel.ProductViewModel
+import javax.inject.Inject
 
-class ShoppingCardAdapter : RecyclerView.Adapter<ShoppingCardAdapter.ShoppingCardViewHolder>() {
+class ShoppingCardAdapter@Inject constructor(val viewModel:ProductViewModel): RecyclerView.Adapter<ShoppingCardAdapter.ShoppingCardViewHolder>() {
 
     inner class ShoppingCardViewHolder(val binding: ShoppingCartItemRowLayoutBinding) :
         RecyclerView.ViewHolder(binding.root) {
 
     }
+
 
     private var productList = emptyList<ProductEntity>()
 
@@ -39,6 +42,17 @@ class ShoppingCardAdapter : RecyclerView.Adapter<ShoppingCardAdapter.ShoppingCar
 
         binding.productNameTv.text = currentProduct.title
         binding.productpriceTV.text = currentProduct.price.toString()
-        binding.productAmountTv.text = "1"
+
+
+            binding.ivDelete.setOnClickListener {
+                viewModel.deleteProductEntity(currentProduct)
+
+        }
+
+
+
+
+
     }
+
 }

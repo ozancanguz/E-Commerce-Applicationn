@@ -1,13 +1,12 @@
 package com.example.e_commerce_application.ui.fragments.card
 
 import android.os.Bundle
+import android.view.*
 import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.e_commerce_application.R
 import com.example.e_commerce_application.data.adapter.ProductsAdapter
 import com.example.e_commerce_application.data.adapter.ShoppingCardAdapter
 import com.example.e_commerce_application.databinding.FragmentCardBinding
@@ -43,13 +42,16 @@ class CardFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
 
         productViewModel=ViewModelProvider(this).get(ProductViewModel::class.java)
-        productsAdapter= ShoppingCardAdapter()
+        productsAdapter= ShoppingCardAdapter(productViewModel)
 
         // setting up recyclerview
         setupRv()
 
         // observe live data and update ui
         observeLiveData()
+
+        // set menu
+        setHasOptionsMenu(true)
         super.onViewCreated(view, savedInstanceState)
     }
 
@@ -62,6 +64,19 @@ class CardFragment : Fragment() {
     private fun setupRv() {
        binding.cardRv.layoutManager=LinearLayoutManager(requireContext())
         binding.cardRv.adapter=productsAdapter
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
+        inflater.inflate(R.menu.shoppingcardmenu,menu)
+        super.onCreateOptionsMenu(menu, inflater)
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+
+        if(item.itemId==R.id.deleteAll){
+            productViewModel.deleteAllEntity()
+        }
+        return super.onOptionsItemSelected(item)
     }
 
 }

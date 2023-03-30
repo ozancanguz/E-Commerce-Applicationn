@@ -1,19 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:orientation="vertical"
-    android:background="#E36868"
     android:layout_margin="1dp"
+    android:background="#E36868"
+    android:orientation="vertical"
     android:padding="16dp">
 
     <TextView
         android:id="@+id/productNameTv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="28dp"
         android:layout_weight="9"
         android:text="Name"
         android:textColor="@android:color/black"
@@ -22,76 +23,43 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/productAmountTv"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:text="Amount"
-        android:textColor="@android:color/black"
-        android:textSize="20sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="@+id/ivMinus"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
         android:id="@+id/tvPrice"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="52dp"
         android:text="Price"
         android:textColor="@android:color/black"
         android:textSize="20sp"
-        app:layout_constraintEnd_toStartOf="@+id/ivMinus"
-        app:layout_constraintStart_toEndOf="@+id/productNameTv"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
         android:id="@+id/ivDelete"
-        android:layout_width="35dp"
-        android:layout_height="35dp"
-        android:layout_marginTop="16dp"
+        android:layout_width="80dp"
+        android:layout_height="32dp"
+        android:layout_marginStart="6dp"
+        android:layout_marginTop="34dp"
+        android:layout_marginBottom="18dp"
         android:clickable="true"
         android:focusable="true"
         android:src="@drawable/delete"
         android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/productNameTv" />
-
-    <ImageView
-        android:id="@+id/ivPlus"
-        android:layout_width="35dp"
-        android:layout_height="35dp"
-        android:layout_marginTop="16dp"
-        android:src="@drawable/plus"
-        android:clickable="true"
-        android:focusable="true"
-        android:textSize="20sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/productAmountTv" />
-
-    <ImageView
-        android:id="@+id/ivMinus"
-        android:layout_width="35dp"
-        android:layout_height="35dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="16dp"
-        android:layout_marginRight="16dp"
-        android:src="@drawable/minus"
-        android:clickable="true"
-        android:focusable="true"
-        android:textSize="20sp"
-        app:layout_constraintEnd_toStartOf="@+id/ivPlus"
-        app:layout_constraintTop_toBottomOf="@+id/productAmountTv" />
+        app:layout_constraintTop_toBottomOf="@+id/productNameTv"
+        app:layout_constraintVertical_bias="0.0" />
 
     <TextView
         android:id="@+id/productpriceTV"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="92dp"
-        android:layout_marginBottom="6dp"
+        android:layout_marginEnd="52dp"
+        android:layout_marginBottom="16dp"
         android:text="100$"
         android:textSize="20sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/ivMinus" />
+        app:layout_constraintEnd_toEndOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
