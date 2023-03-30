@@ -6,6 +6,7 @@ import androidx.navigation.findNavController
 
 
 import androidx.recyclerview.widget.RecyclerView
+import com.example.e_commerce_application.R
 import com.example.e_commerce_application.data.model.ProductItem
 import com.example.e_commerce_application.data.model.entity.ProductEntity
 import com.example.e_commerce_application.databinding.ProductsRowLayoutBinding
@@ -26,6 +27,8 @@ class ProductsAdapter() : RecyclerView.Adapter<ProductsAdapter.ProductsViewHolde
                 val directions = ListFragmentDirections.actionListFragmentToProductDetailsFragment(productList[position])
                 binding.cardView.findNavController().navigate(directions)
             }
+
+
 
         }
     }

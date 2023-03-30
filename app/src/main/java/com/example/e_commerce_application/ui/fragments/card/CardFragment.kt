@@ -2,9 +2,11 @@ package com.example.e_commerce_application.ui.fragments.card
 
 import android.os.Bundle
 import android.view.*
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.e_commerce_application.R
 import com.example.e_commerce_application.data.adapter.ProductsAdapter
@@ -14,7 +16,7 @@ import com.example.e_commerce_application.viewmodel.ProductViewModel
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
-class CardFragment : Fragment() {
+class CardFragment : Fragment(),ShoppingCardAdapter.OnTotalPriceChangeListener {
 
     private var _binding: FragmentCardBinding? = null
 
@@ -22,7 +24,6 @@ class CardFragment : Fragment() {
 
     private lateinit var productViewModel: ProductViewModel
     private lateinit var productsAdapter: ShoppingCardAdapter
-
 
 
 
@@ -52,13 +53,31 @@ class CardFragment : Fragment() {
 
         // set menu
         setHasOptionsMenu(true)
+
+        productsAdapter.totalPriceListener = this
+
+
+         order()
+
+
+
         super.onViewCreated(view, savedInstanceState)
     }
 
+    private fun order(){
+        binding.orderBtn.setOnClickListener {
+            findNavController().navigate(R.id.action_cardFragment_to_listFragment)
+            productViewModel.deleteAllEntity()
+            binding.totalPriceTv.text= "0".toString().toInt().toString()
+            Toast.makeText(requireContext(),"Order completed",Toast.LENGTH_LONG).show()
+        }
+    }
     private fun observeLiveData() {
         productViewModel.getAllProductEntity.observe(viewLifecycleOwner, Observer {
             productsAdapter.setData(it)
+
         })
+
     }
 
     private fun setupRv() {
@@ -75,8 +94,15 @@ class CardFragment : Fragment() {
 
         if(item.itemId==R.id.deleteAll){
             productViewModel.deleteAllEntity()
+            binding.totalPriceTv.text="0".toString()
         }
         return super.onOptionsItemSelected(item)
+    }
+
+
+    override fun onTotalPriceChanged(totalPrice: Int) {
+        // Update the UI with the new total price
+        binding.totalPriceTv.text = "$totalPrice USD"
     }
 
 }

@@ -11,7 +11,7 @@ import com.example.e_commerce_application.databinding.ShoppingCartItemRowLayoutB
 import com.example.e_commerce_application.viewmodel.ProductViewModel
 import javax.inject.Inject
 
-class ShoppingCardAdapter@Inject constructor(val viewModel:ProductViewModel): RecyclerView.Adapter<ShoppingCardAdapter.ShoppingCardViewHolder>() {
+class ShoppingCardAdapter@Inject constructor(private val viewModel:ProductViewModel): RecyclerView.Adapter<ShoppingCardAdapter.ShoppingCardViewHolder>() {
 
     inner class ShoppingCardViewHolder(val binding: ShoppingCartItemRowLayoutBinding) :
         RecyclerView.ViewHolder(binding.root) {
@@ -21,8 +21,20 @@ class ShoppingCardAdapter@Inject constructor(val viewModel:ProductViewModel): Re
 
     private var productList = emptyList<ProductEntity>()
 
+    private var totalPrice=0
+
+    var totalPriceListener: OnTotalPriceChangeListener? = null
+
+
     fun setData(newData: List<ProductEntity>) {
         productList = newData
+
+        for (product in productList) {
+            totalPrice += product.price
+
+        }
+        // Call the listener to update the total price in the fragment
+        totalPriceListener?.onTotalPriceChanged(totalPrice)
         notifyDataSetChanged()
     }
 
@@ -47,12 +59,23 @@ class ShoppingCardAdapter@Inject constructor(val viewModel:ProductViewModel): Re
             binding.ivDelete.setOnClickListener {
                 viewModel.deleteProductEntity(currentProduct)
 
+
         }
 
 
 
 
 
+
+
+
+
+
+    }
+
+
+    interface OnTotalPriceChangeListener {
+        fun onTotalPriceChanged(totalPrice: Int)
     }
 
 }
