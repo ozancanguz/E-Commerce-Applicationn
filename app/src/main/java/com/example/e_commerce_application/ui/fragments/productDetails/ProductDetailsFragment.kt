@@ -60,7 +60,6 @@ class ProductDetailsFragment : Fragment() {
         binding.addCart.setOnClickListener {
             val price=binding.detailsPrice.text.toString().toInt()
             val title=binding.detailsTitle.text.toString()
-
             val newItem=ProductEntity(0,title,price)
             productViewModel.insertProductEntity(newItem)
             Toast.makeText(requireContext(),"Item added to card",Toast.LENGTH_LONG).show()
