@@ -2,11 +2,11 @@ package com.example.e_commerce_application.ui.fragments.productDetails
 
 import android.os.Bundle
 import android.util.Log
+import android.view.*
 import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
+import android.widget.Toast
 import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.example.e_commerce_application.R
 import com.example.e_commerce_application.data.model.entity.ProductEntity
@@ -41,6 +41,9 @@ class ProductDetailsFragment : Fragment() {
         insertDb()
 
 
+        // set menu
+        setHasOptionsMenu(true)
+
         return view
 
 
@@ -55,20 +58,27 @@ class ProductDetailsFragment : Fragment() {
 
     private fun insertDb(){
         binding.addCart.setOnClickListener {
-            val image=binding.imageView.loadImage(args.details.imageUrl)
             val price=binding.detailsPrice.text.toString().toInt()
             val title=binding.detailsTitle.text.toString()
 
             val newItem=ProductEntity(0,title,price)
             productViewModel.insertProductEntity(newItem)
+            Toast.makeText(requireContext(),"Item added to card",Toast.LENGTH_LONG).show()
             Log.d("hello", " $newItem")
 
         }
     }
 
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
 
+    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
+        inflater.inflate(R.menu.detailsmenu,menu)
+        super.onCreateOptionsMenu(menu, inflater)
+    }
 
-        super.onViewCreated(view, savedInstanceState)
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        if(item.itemId==R.id.card){
+            findNavController().navigate(R.id.action_productDetailsFragment_to_cardFragment)
+        }
+        return super.onOptionsItemSelected(item)
     }
 }

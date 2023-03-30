@@ -30,5 +30,8 @@
         <argument
             android:name="details"
             app:argType="com.example.e_commerce_application.data.model.ProductItem" />
+        <action
+            android:id="@+id/action_productDetailsFragment_to_cardFragment"
+            app:destination="@id/cardFragment" />
     </fragment>
 </navigation>
