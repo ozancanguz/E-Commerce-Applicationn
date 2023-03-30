@@ -5,14 +5,9 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
-import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.StaggeredGridLayoutManager
-import com.example.e_commerce_application.R
-import com.example.e_commerce_application.data.adapter.ImagesAdapter
 import com.example.e_commerce_application.data.adapter.ProductsAdapter
 import com.example.e_commerce_application.databinding.FragmentListBinding
 import com.example.e_commerce_application.viewmodel.ListViewModel

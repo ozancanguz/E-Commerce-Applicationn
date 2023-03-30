@@ -1,16 +1,11 @@
 package com.example.e_commerce_application.data.adapter
 
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
-import androidx.fragment.app.Fragment
 import androidx.navigation.findNavController
-import androidx.navigation.fragment.NavHostFragment.Companion.findNavController
 
 
 import androidx.recyclerview.widget.RecyclerView
-import com.example.e_commerce_application.R
-import com.example.e_commerce_application.data.model.Product
 import com.example.e_commerce_application.data.model.ProductItem
 import com.example.e_commerce_application.data.model.entity.ProductEntity
 import com.example.e_commerce_application.databinding.ProductsRowLayoutBinding
@@ -37,7 +32,7 @@ class ProductsAdapter() : RecyclerView.Adapter<ProductsAdapter.ProductsViewHolde
 
     private var productList = emptyList<ProductItem>()
 
-    fun setData(newData: Product) {
+    fun setData(newData: List<ProductItem>) {
         productList = newData
         notifyDataSetChanged()
     }
