@@ -28,6 +28,9 @@
         <action
             android:id="@+id/action_cardFragment_to_listFragment"
             app:destination="@id/listFragment" />
+        <action
+            android:id="@+id/action_cardFragment_to_orderCompleteFragment"
+            app:destination="@id/orderCompleteFragment" />
     </fragment>
     <fragment
         android:id="@+id/productDetailsFragment"
@@ -41,4 +44,8 @@
             android:id="@+id/action_productDetailsFragment_to_cardFragment"
             app:destination="@id/cardFragment" />
     </fragment>
+    <fragment
+        android:id="@+id/orderCompleteFragment"
+        android:name="com.example.e_commerce_application.ui.fragments.ordercomplete.OrderCompleteFragment"
+        android:label="OrderCompleteFragment" />
 </navigation>
