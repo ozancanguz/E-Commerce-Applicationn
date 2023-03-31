@@ -68,7 +68,6 @@ class CardFragment : Fragment(),ShoppingCardAdapter.OnTotalPriceChangeListener {
         binding.orderBtn.setOnClickListener {
             productViewModel.deleteAllEntity()
             binding.totalPriceTv.text= "0".toString().toInt().toString()
-            Toast.makeText(requireContext(),"Order completed",Toast.LENGTH_LONG).show()
            findNavController().navigate(R.id.action_cardFragment_to_orderCompleteFragment)
         }
     }
