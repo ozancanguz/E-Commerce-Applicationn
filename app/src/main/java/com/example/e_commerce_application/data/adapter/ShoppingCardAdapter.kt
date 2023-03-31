@@ -62,6 +62,9 @@ class ShoppingCardAdapter@Inject constructor(private val viewModel:ProductViewMo
 
         }
 
+        binding.amountTv.text=currentProduct.amount.toString()
+
+
 
 
 

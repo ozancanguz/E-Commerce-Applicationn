@@ -23,6 +23,7 @@ class ProductsAdapter() : RecyclerView.Adapter<ProductsAdapter.ProductsViewHolde
             binding.productPrice.text = product.price.toString()+"$"
             binding.productImage.loadImage(product.imageUrl)
 
+
             binding.cardView.setOnClickListener {
                 val directions = ListFragmentDirections.actionListFragmentToProductDetailsFragment(productList[position])
                 binding.cardView.findNavController().navigate(directions)
