@@ -78,16 +78,11 @@
         android:layout_width="38dp"
         android:layout_height="34dp"
         android:layout_marginStart="32dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="2dp"
-        android:layout_marginBottom="17dp"
         android:text="1"
         android:textSize="20sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/ivPlus"
         app:layout_constraintStart_toEndOf="@+id/ivMinus"
-        app:layout_constraintTop_toBottomOf="@+id/productpriceTV" />
+        tools:layout_editor_absoluteY="43dp" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
