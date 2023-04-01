@@ -58,7 +58,6 @@ class ShoppingCardAdapter@Inject constructor(private val viewModel:ProductViewMo
 
             binding.ivDelete.setOnClickListener {
                 viewModel.deleteProductEntity(currentProduct)
-
         }
 
 
