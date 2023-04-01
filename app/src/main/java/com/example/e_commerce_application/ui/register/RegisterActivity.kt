@@ -39,21 +39,21 @@ class RegisterActivity : AppCompatActivity() {
 
     private fun register() {
         binding.registerButton.setOnClickListener {
-         //   binding.progressBar.visibility= View.VISIBLE
+            binding.progressBar.visibility= View.VISIBLE
 
             val name = binding.nameEditText.text.toString()
             val email = binding.emailEditText.text.toString()
             val password = binding.passwordEditText.text.toString()
             if (email.isEmpty() || password.isEmpty()) {
                 Toast.makeText(this, "E-mail or password empty", Toast.LENGTH_LONG).show()
-             //   binding.progressBar.visibility= View.INVISIBLE
+               binding.progressBar.visibility= View.INVISIBLE
 
             } else {
                 auth.createUserWithEmailAndPassword(email, password).addOnSuccessListener {
 
                     val intent = Intent(this@RegisterActivity, LoginActivity::class.java)
                     startActivity(intent)
-                //    binding.progressBar.visibility= View.INVISIBLE
+                    binding.progressBar.visibility= View.INVISIBLE
 
                 }.addOnFailureListener {
                     Toast.makeText(this@RegisterActivity, it.localizedMessage, Toast.LENGTH_LONG)
