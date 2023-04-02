@@ -10,4 +10,5 @@ data class ProductEntity(
     var id:Int=0,
     val title: String,
     val price: Int,
+    var quantity:Int
     )

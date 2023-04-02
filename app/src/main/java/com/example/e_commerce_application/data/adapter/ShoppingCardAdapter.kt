@@ -3,6 +3,7 @@ package com.example.e_commerce_application.data.adapter
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.RecyclerView.Recycler
 import com.example.e_commerce_application.R
@@ -24,6 +25,7 @@ class ShoppingCardAdapter@Inject constructor(private val viewModel:ProductViewMo
     private var totalPrice=0
 
     var totalPriceListener: OnTotalPriceChangeListener? = null
+    private val bindingMap = HashMap<Int, ShoppingCartItemRowLayoutBinding>()
 
 
     fun setData(newData: List<ProductEntity>) {
@@ -60,16 +62,44 @@ class ShoppingCardAdapter@Inject constructor(private val viewModel:ProductViewMo
                 viewModel.deleteProductEntity(currentProduct)
         }
 
+        binding.ivPlus.setOnClickListener {
+            increaseQuantity(currentProduct)
+
+        }
+
+        binding.ivMinus.setOnClickListener {
+            decreaseQuantity(currentProduct)
 
 
-
-
-
-
-
+        }
 
 
     }
+    private fun increaseQuantity(product: ProductEntity) {
+        product.quantity++
+        totalPrice += product.price
+        totalPriceListener?.onTotalPriceChanged(totalPrice)
+        notifyDataSetChanged()
+        updateAmountTextView(product)
+    }
+
+    private fun decreaseQuantity(product: ProductEntity) {
+        if (product.quantity > 1) {
+            product.quantity--
+            totalPrice -= product.price
+            totalPriceListener?.onTotalPriceChanged(totalPrice)
+            notifyDataSetChanged()
+            updateAmountTextView(product)
+        }
+    }
+
+    private fun updateAmountTextView(product: ProductEntity) {
+        val binding = bindingMap[product.id]
+        val amount = product.price * product.quantity
+        binding?.amounttv?.text = "$amount"
+    }
+
+
 
 
     interface OnTotalPriceChangeListener {
