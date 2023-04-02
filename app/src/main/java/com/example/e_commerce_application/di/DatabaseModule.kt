@@ -29,5 +29,12 @@ object DatabaseModule {
     @Provides
     fun provideDao(database: ProductDatabase) = database.productDao()
 
+       @Singleton
+    @Provides
+    fun provideFavoriteDao(database: ProductDatabase) = database.favoritesDao()
+
+
+
+
 
 }
