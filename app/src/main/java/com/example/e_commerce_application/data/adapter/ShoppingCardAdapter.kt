@@ -55,21 +55,49 @@ class ShoppingCardAdapter@Inject constructor(private val viewModel:ProductViewMo
         binding.productNameTv.text = currentProduct.title
         binding.productpriceTV.text = currentProduct.price.toString()
 
+        // Initialize the quantity of the product
+        var quantity = 1
 
-            binding.ivDelete.setOnClickListener {
-                viewModel.deleteProductEntity(currentProduct)
+        binding.ivDelete.setOnClickListener {
+            viewModel.deleteProductEntity(currentProduct)
         }
 
+        binding.ivPlus.setOnClickListener {
+            // Increase the quantity by 1
+            quantity++
+            binding.amounttv.text = quantity.toString()
 
+            // Update the total price
+            totalPrice += currentProduct.price
+            totalPriceListener?.onTotalPriceChanged(totalPrice)
+        }
 
+        binding.ivMinus.setOnClickListener {
+            // Decrease the quantity by 1
+            if (quantity > 1) {
+                quantity--
+                binding.amounttv.text = quantity.toString()
 
+                // Update the total price
+                totalPrice -= currentProduct.price
+                totalPriceListener?.onTotalPriceChanged(totalPrice)
+            }
+        }
 
-
-
-
-
-
+        // Set the quantity of the product
+        binding.amounttv.text = quantity.toString()
     }
+
+
+
+
+
+
+
+
+
+
+
 
 
     interface OnTotalPriceChangeListener {
