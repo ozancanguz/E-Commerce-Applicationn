@@ -57,7 +57,7 @@ class ProductDetailsFragment : Fragment() {
 
     private fun getDetails() {
         binding.imageView.loadImage(args.details.imageUrl)
-        binding.detailsPrice.text=args.details.price.toString()
+        binding.detailsPrice.text = "$" + args.details.price.toString()
         binding.detailsTitle.text=args.details.title
     }
 
