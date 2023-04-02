@@ -8,4 +8,9 @@
         android:title="Shopping cart"
         android:icon="@drawable/shoppingcard"
         app:showAsAction="ifRoom" />
+
+    <item android:id="@+id/addFav"
+        android:title="Add Fav"
+        android:icon="@drawable/favstar"
+        app:showAsAction="ifRoom"></item>
 </menu>

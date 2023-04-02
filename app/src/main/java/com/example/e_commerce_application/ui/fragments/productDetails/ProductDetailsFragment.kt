@@ -78,6 +78,7 @@ class ProductDetailsFragment : Fragment() {
         if(item.itemId==R.id.card){
             findNavController().navigate(R.id.action_productDetailsFragment_to_cardFragment)
         }
+
         return super.onOptionsItemSelected(item)
     }
 }
