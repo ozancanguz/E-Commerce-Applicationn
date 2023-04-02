@@ -16,7 +16,7 @@ class FavoritesAdapter(private val viewModel:FavoritesViewModel): RecyclerView.A
 
         fun bind(favorite: FavoritesEntity) {
             binding.favproductNameTv.text = favorite.favTitle
-            binding.favproductpriceTV.text = "$" + favorite.favPrice.toString()
+            binding.favproductpriceTV.text = favorite.favPrice.toString()
 
             binding.favivDelete.setOnClickListener {
                 viewModel.deleteFavorite(favorite)

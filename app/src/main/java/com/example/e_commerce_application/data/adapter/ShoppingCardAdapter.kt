@@ -53,7 +53,7 @@ class ShoppingCardAdapter@Inject constructor(private val viewModel:ProductViewMo
         val binding = holder.binding
 
         binding.productNameTv.text = currentProduct.title
-        binding.productpriceTV.text = "$" + currentProduct.price.toString()
+        binding.productpriceTV.text = currentProduct.price.toString()
 
         // Initialize the quantity of the product
         var quantity = 1
@@ -87,6 +87,15 @@ class ShoppingCardAdapter@Inject constructor(private val viewModel:ProductViewMo
         // Set the quantity of the product
         binding.amounttv.text = quantity.toString()
     }
+
+
+
+
+
+
+
+
+
 
 
 
