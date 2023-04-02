@@ -48,4 +48,24 @@
         android:id="@+id/orderCompleteFragment"
         android:name="com.example.e_commerce_application.ui.fragments.ordercomplete.OrderCompleteFragment"
         android:label="OrderCompleteFragment" />
+    <fragment
+        android:id="@+id/favoriteFragment"
+        android:name="com.example.e_commerce_application.ui.fragments.favorite.FavoriteFragment"
+        android:label="fragment_favorite"
+        tools:layout="@layout/fragment_favorite" />
+    <fragment
+        android:id="@+id/userFragment"
+        android:name="com.example.e_commerce_application.ui.fragments.user.UserFragment"
+        android:label="fragment_user"
+        tools:layout="@layout/fragment_user" />
+    <activity
+        android:id="@+id/loginActivity"
+        android:name="com.example.e_commerce_application.ui.login.LoginActivity"
+        android:label="activity_login"
+        tools:layout="@layout/activity_login" />
+    <activity
+        android:id="@+id/registerActivity"
+        android:name="com.example.e_commerce_application.ui.register.RegisterActivity"
+        android:label="activity_register"
+        tools:layout="@layout/activity_register" />
 </navigation>
