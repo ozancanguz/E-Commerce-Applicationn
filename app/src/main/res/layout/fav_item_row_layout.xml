@@ -4,11 +4,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:orientation="vertical"
-    android:background="#E36868"
     android:layout_margin="1dp"
-    android:padding="16dp"
-    >
+    android:background="#E36868"
+    android:orientation="vertical"
+    android:padding="16dp">
 
 
     <TextView
@@ -27,22 +26,25 @@
         android:id="@+id/favproductpriceTV"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginEnd="31dp"
         android:layout_weight="1"
         android:text="100$"
         android:textColor="@android:color/black"
         android:textSize="20sp"
-        tools:layout_editor_absoluteX="316dp"
-        tools:layout_editor_absoluteY="32dp" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
         android:id="@+id/favivDelete"
-        android:layout_width="35dp"
-        android:layout_height="35dp"
+        android:layout_width="57dp"
+        android:layout_height="27dp"
         android:layout_marginTop="16dp"
         android:clickable="true"
         android:focusable="true"
         android:src="@drawable/delete"
         android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/favproductNameTv" />
 
