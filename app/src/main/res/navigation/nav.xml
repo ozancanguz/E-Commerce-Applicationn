@@ -51,12 +51,12 @@
     <fragment
         android:id="@+id/favoriteFragment"
         android:name="com.example.e_commerce_application.ui.fragments.favorite.FavoriteFragment"
-        android:label="fragment_favorite"
+        android:label="Favorites"
         tools:layout="@layout/fragment_favorite" />
     <fragment
         android:id="@+id/userFragment"
         android:name="com.example.e_commerce_application.ui.fragments.user.UserFragment"
-        android:label="fragment_user"
+        android:label="User Details"
         tools:layout="@layout/fragment_user" />
     <activity
         android:id="@+id/loginActivity"
