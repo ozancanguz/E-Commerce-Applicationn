@@ -1,10 +1,8 @@
 package com.example.e_commerce_application.ui.fragments.favorite
 
 import android.os.Bundle
+import android.view.*
 import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
@@ -51,6 +49,10 @@ class FavoriteFragment : Fragment() {
         // observe live data and update ui
         observeFavoriteLiveData()
 
+
+        // set menu
+        setHasOptionsMenu(true)
+
         super.onViewCreated(view, savedInstanceState)
     }
     private fun observeFavoriteLiveData() {
@@ -64,5 +66,16 @@ class FavoriteFragment : Fragment() {
         binding.favRv.adapter=favadapter
     }
 
+    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
+        inflater.inflate(R.menu.favoritesmenu,menu)
+        super.onCreateOptionsMenu(menu, inflater)
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        if(item.itemId==R.id.FavdeleteAll){
+            favoritesViewModel.deletAllFavorites()
+        }
+        return super.onOptionsItemSelected(item)
+    }
 
 }
