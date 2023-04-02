@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.e_commerce_application.R
 import com.example.e_commerce_application.data.adapter.FavoritesAdapter
@@ -20,9 +21,9 @@ class FavoriteFragment : Fragment() {
 
     private val binding get() = _binding!!
 
-    private val favadapter=FavoritesAdapter()
+    private lateinit var favadapter:FavoritesAdapter
 
-    private val favoritesViewModel:FavoritesViewModel by viewModels()
+    private lateinit var favoritesViewModel:FavoritesViewModel
 
 
 
@@ -34,6 +35,15 @@ class FavoriteFragment : Fragment() {
         _binding = FragmentFavoriteBinding.inflate(inflater, container, false)
         val view = binding.root
 
+        return view
+
+    }
+
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+
+        favoritesViewModel= ViewModelProvider(this)[FavoritesViewModel::class.java]
+        favadapter=FavoritesAdapter(favoritesViewModel)
 
         // setting up recyclerview
         setupRv()
@@ -41,12 +51,8 @@ class FavoriteFragment : Fragment() {
         // observe live data and update ui
         observeFavoriteLiveData()
 
-        return view
-
-
-
+        super.onViewCreated(view, savedInstanceState)
     }
-
     private fun observeFavoriteLiveData() {
         favoritesViewModel.getAllFavorites.observe(viewLifecycleOwner, Observer {
             favadapter.setData(it)
