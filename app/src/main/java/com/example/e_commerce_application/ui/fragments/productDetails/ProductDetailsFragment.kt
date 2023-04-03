@@ -17,6 +17,7 @@ import com.example.e_commerce_application.databinding.FragmentProductDetailsBind
 import com.example.e_commerce_application.util.Util.Companion.loadImage
 import com.example.e_commerce_application.viewmodel.FavoritesViewModel
 import com.example.e_commerce_application.viewmodel.ProductViewModel
+import com.google.android.material.snackbar.Snackbar
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -57,7 +58,7 @@ class ProductDetailsFragment : Fragment() {
 
     private fun getDetails() {
         binding.imageView.loadImage(args.details.imageUrl)
-        binding.detailsPrice.text=args.details.price.toString()
+        binding.detailsPrice.text =  args.details.price.toString()
         binding.detailsTitle.text=args.details.title
     }
 
@@ -97,7 +98,12 @@ class ProductDetailsFragment : Fragment() {
         val favtitle=binding.detailsTitle.text.toString()
         val newFavItem=FavoritesEntity(0,favtitle,favprice,1)
         favoritesViewModel.insertFavorite(newFavItem)
-        Toast.makeText(requireContext(),"Item added to favorites",Toast.LENGTH_LONG).show()
+        val snackbar = Snackbar.make(
+            requireView(),
+            "Item added to favorites",
+            Snackbar.LENGTH_LONG
+        )
+        snackbar.show()
 
     }
 }

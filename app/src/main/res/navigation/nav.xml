@@ -31,6 +31,9 @@
         <action
             android:id="@+id/action_cardFragment_to_orderCompleteFragment"
             app:destination="@id/orderCompleteFragment" />
+        <action
+            android:id="@+id/action_cardFragment_to_listFragment2"
+            app:destination="@id/listFragment" />
     </fragment>
     <fragment
         android:id="@+id/productDetailsFragment"

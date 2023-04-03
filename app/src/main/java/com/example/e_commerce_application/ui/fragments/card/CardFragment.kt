@@ -94,6 +94,8 @@ class CardFragment : Fragment(),ShoppingCardAdapter.OnTotalPriceChangeListener {
         if(item.itemId==R.id.deleteAll){
             productViewModel.deleteAllEntity()
             binding.totalPriceTv.text="0".toString()
+            findNavController().navigate(R.id.action_cardFragment_to_listFragment)
+
         }
         return super.onOptionsItemSelected(item)
     }
