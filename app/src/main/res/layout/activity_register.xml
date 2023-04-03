@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical"
     android:padding="16dp"
-    android:layout_marginTop="120dp"
+    android:layout_marginTop="40dp"
     tools:context=".ui.register.RegisterActivity"
     xmlns:android="http://schemas.android.com/apk/res/android">
 
@@ -16,11 +16,12 @@
         android:layout_height="wrap_content"
         android:visibility="invisible" />
     <ImageView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:src="@drawable/mylogo"
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        android:src="@drawable/shop2"
         android:scaleType="centerInside"
         android:layout_marginBottom="40dp"
+        android:layout_gravity="center"
 
         android:padding="16dp"
         android:contentDescription="App Logo"/>

@@ -2,6 +2,7 @@ package com.example.e_commerce_application.ui.fragments.favorite
 
 import android.os.Bundle
 import android.view.*
+import androidx.appcompat.app.AlertDialog
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
@@ -74,8 +75,27 @@ class FavoriteFragment : Fragment() {
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         if(item.itemId==R.id.FavdeleteAll){
-            favoritesViewModel.deletAllFavorites()
-            findNavController().navigate(R.id.action_favoriteFragment_to_listFragment)
+
+            val builder = AlertDialog.Builder(requireContext())
+
+// Set the alert dialog title and message
+            builder.setTitle("Delete All Favorite Products")
+            builder.setMessage("Are you sure you want to delete all favorite products?")
+
+// Add the buttons
+            builder.setPositiveButton("Yes") { dialog, which ->
+                favoritesViewModel.deletAllFavorites()
+                findNavController().navigate(R.id.action_favoriteFragment_to_listFragment)
+            }
+            builder.setNegativeButton("No") { dialog, which ->
+                dialog.dismiss()
+            }
+
+// Create and show the dialog
+            val dialog = builder.create()
+            dialog.show()
+
+
         }
         return super.onOptionsItemSelected(item)
     }

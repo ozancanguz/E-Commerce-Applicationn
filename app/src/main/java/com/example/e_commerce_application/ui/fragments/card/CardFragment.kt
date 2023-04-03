@@ -3,6 +3,7 @@ package com.example.e_commerce_application.ui.fragments.card
 import android.os.Bundle
 import android.view.*
 import android.widget.Toast
+import androidx.appcompat.app.AlertDialog
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
@@ -91,10 +92,28 @@ class CardFragment : Fragment(),ShoppingCardAdapter.OnTotalPriceChangeListener {
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
 
+
+
         if(item.itemId==R.id.deleteAll){
-            productViewModel.deleteAllEntity()
-            binding.totalPriceTv.text="0".toString()
-            findNavController().navigate(R.id.action_cardFragment_to_listFragment)
+
+            val builder = AlertDialog.Builder(requireContext())
+
+            builder.setTitle("Delete All Products")
+            builder.setMessage("Are you sure you want to delete all products?")
+
+            builder.setPositiveButton("Yes") { dialog, which ->
+                productViewModel.deleteAllEntity()
+                binding.totalPriceTv.text="0".toString()
+                findNavController().navigate(R.id.action_cardFragment_to_listFragment)
+            }
+            builder.setNegativeButton("No") {  dialog,which ->
+              dialog.dismiss()
+            }
+
+            val dialog = builder.create()
+            dialog.show()
+
+
 
         }
         return super.onOptionsItemSelected(item)

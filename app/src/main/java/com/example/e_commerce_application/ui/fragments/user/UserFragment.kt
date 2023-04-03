@@ -3,6 +3,7 @@ package com.example.e_commerce_application.ui.fragments.user
 import android.os.Bundle
 import android.util.Log
 import android.view.*
+import androidx.appcompat.app.AlertDialog
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.example.e_commerce_application.R
@@ -79,10 +80,30 @@ class UserFragment : Fragment() {
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         if(item.itemId==R.id.signoutmenu){
-            auth.signOut()
-            findNavController().navigate(R.id.action_userFragment_to_loginActivity)
+
+            val builder = AlertDialog.Builder(requireContext())
+
+
+            builder.setTitle("Sign Out")
+            builder.setMessage("Are you sure you want to sign out?")
+
+            builder.setPositiveButton("Yes") { dialog, which ->
+                auth.signOut()
+                findNavController().navigate(R.id.action_userFragment_to_loginActivity)
+            }
+            builder.setNegativeButton("No") { dialog, which ->
+               dialog.dismiss()
+            }
+
+// Create and show the dialog
+            val dialog = builder.create()
+            dialog.show()
+
+
         }
         return super.onOptionsItemSelected(item)
     }
+
+
 
 }
