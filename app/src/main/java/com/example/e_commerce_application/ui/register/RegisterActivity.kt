@@ -43,12 +43,6 @@ class RegisterActivity : AppCompatActivity() {
 
     private fun register() {
 
-        val name = binding.nameEditText.text.toString()
-        val bundle = Bundle().apply {
-            putString("name", name)
-        }
-        val userFragment = UserFragment()
-        userFragment.arguments = bundle
         binding.registerButton.setOnClickListener {
             binding.progressBar.visibility= View.VISIBLE
 
