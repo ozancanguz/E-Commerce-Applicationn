@@ -18,7 +18,11 @@
             app:destination="@id/cardFragment" />
         <action
             android:id="@+id/action_listFragment_to_productDetailsFragment2"
-            app:destination="@id/productDetailsFragment" />
+            app:destination="@id/productDetailsFragment"
+            app:enterAnim="@android:anim/slide_in_left"
+            app:exitAnim="@android:anim/slide_out_right"
+            app:popEnterAnim="@android:anim/slide_in_left"
+            app:popExitAnim="@android:anim/slide_out_right" />
     </fragment>
     <fragment
         android:id="@+id/cardFragment"
@@ -29,11 +33,8 @@
             android:id="@+id/action_cardFragment_to_listFragment"
             app:destination="@id/listFragment" />
         <action
-            android:id="@+id/action_cardFragment_to_orderCompleteFragment"
-            app:destination="@id/orderCompleteFragment" />
-        <action
-            android:id="@+id/action_cardFragment_to_listFragment2"
-            app:destination="@id/listFragment" />
+            android:id="@+id/action_cardFragment_to_orderCompleteActivity"
+            app:destination="@id/orderCompleteActivity" />
     </fragment>
     <fragment
         android:id="@+id/productDetailsFragment"
@@ -47,10 +48,6 @@
             android:id="@+id/action_productDetailsFragment_to_cardFragment"
             app:destination="@id/cardFragment" />
     </fragment>
-    <fragment
-        android:id="@+id/orderCompleteFragment"
-        android:name="com.example.e_commerce_application.ui.fragments.ordercomplete.OrderCompleteFragment"
-        android:label="OrderCompleteFragment" />
     <fragment
         android:id="@+id/favoriteFragment"
         android:name="com.example.e_commerce_application.ui.fragments.favorite.FavoriteFragment"
@@ -71,4 +68,9 @@
         android:name="com.example.e_commerce_application.ui.register.RegisterActivity"
         android:label="activity_register"
         tools:layout="@layout/activity_register" />
+    <activity
+        android:id="@+id/orderCompleteActivity"
+        android:name="com.example.e_commerce_application.ui.fragments.complete.OrderCompleteActivity"
+        android:label="activity_order_complete"
+        tools:layout="@layout/activity_order_complete" />
 </navigation>

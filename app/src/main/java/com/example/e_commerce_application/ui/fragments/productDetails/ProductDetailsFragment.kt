@@ -69,7 +69,7 @@ class ProductDetailsFragment : Fragment() {
             val title=binding.detailsTitle.text.toString()
             val newItem=ProductEntity(0,title,price,1)
             productViewModel.insertProductEntity(newItem)
-            Toast.makeText(requireContext(),"Item added to card",Toast.LENGTH_LONG).show()
+            Snackbar.make(requireView(), "Item added to cart", Snackbar.LENGTH_LONG).show();
             Log.d("hello", " $newItem")
 
         }

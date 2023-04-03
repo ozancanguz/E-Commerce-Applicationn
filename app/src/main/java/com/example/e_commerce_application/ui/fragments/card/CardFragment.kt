@@ -68,7 +68,7 @@ class CardFragment : Fragment(),ShoppingCardAdapter.OnTotalPriceChangeListener {
         binding.orderBtn.setOnClickListener {
             productViewModel.deleteAllEntity()
             binding.totalPriceTv.text= "0".toString().toInt().toString()
-           findNavController().navigate(R.id.action_cardFragment_to_orderCompleteFragment)
+            findNavController().navigate(R.id.action_cardFragment_to_orderCompleteActivity)
         }
     }
     private fun observeLiveData() {
@@ -103,7 +103,7 @@ class CardFragment : Fragment(),ShoppingCardAdapter.OnTotalPriceChangeListener {
 
     override fun onTotalPriceChanged(totalPrice: Int) {
         // Update the UI with the new total price
-        binding.totalPriceTv.text = "$totalPrice USD"
+        binding.totalPriceTv.text = "$totalPrice $"
     }
 
 }
