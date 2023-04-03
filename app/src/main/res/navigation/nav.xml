@@ -61,7 +61,11 @@
         android:id="@+id/userFragment"
         android:name="com.example.e_commerce_application.ui.fragments.user.UserFragment"
         android:label="User Details"
-        tools:layout="@layout/fragment_user" />
+        tools:layout="@layout/fragment_user" >
+        <action
+            android:id="@+id/action_userFragment_to_favoriteFragment"
+            app:destination="@id/favoriteFragment" />
+    </fragment>
     <activity
         android:id="@+id/loginActivity"
         android:name="com.example.e_commerce_application.ui.login.LoginActivity"
