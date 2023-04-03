@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical"
-    android:background="#E36868"
+    android:background="#BEA6A1"
     android:layout_margin="1dp"
     android:padding="16dp"
     >

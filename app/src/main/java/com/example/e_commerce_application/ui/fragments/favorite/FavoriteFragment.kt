@@ -6,6 +6,7 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.e_commerce_application.R
 import com.example.e_commerce_application.data.adapter.FavoritesAdapter
@@ -74,6 +75,7 @@ class FavoriteFragment : Fragment() {
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         if(item.itemId==R.id.FavdeleteAll){
             favoritesViewModel.deletAllFavorites()
+            findNavController().navigate(R.id.action_favoriteFragment_to_listFragment)
         }
         return super.onOptionsItemSelected(item)
     }

@@ -52,7 +52,11 @@
         android:id="@+id/favoriteFragment"
         android:name="com.example.e_commerce_application.ui.fragments.favorite.FavoriteFragment"
         android:label="Favorites"
-        tools:layout="@layout/fragment_favorite" />
+        tools:layout="@layout/fragment_favorite" >
+        <action
+            android:id="@+id/action_favoriteFragment_to_listFragment"
+            app:destination="@id/listFragment" />
+    </fragment>
     <fragment
         android:id="@+id/userFragment"
         android:name="com.example.e_commerce_application.ui.fragments.user.UserFragment"
