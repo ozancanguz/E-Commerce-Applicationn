@@ -1,12 +1,15 @@
 package com.example.e_commerce_application.ui.register
 
+import android.content.Context
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.AttributeSet
 import android.view.View
 import android.widget.Toast
 import com.example.e_commerce_application.R
 import com.example.e_commerce_application.databinding.ActivityRegisterBinding
+import com.example.e_commerce_application.ui.fragments.user.UserFragment
 import com.example.e_commerce_application.ui.login.LoginActivity
 import com.google.firebase.FirebaseApp
 import com.google.firebase.auth.FirebaseAuth
@@ -37,16 +40,26 @@ class RegisterActivity : AppCompatActivity() {
 
     }
 
+
     private fun register() {
+
+        val name = binding.nameEditText.text.toString()
+        val bundle = Bundle().apply {
+            putString("name", name)
+        }
+        val userFragment = UserFragment()
+        userFragment.arguments = bundle
         binding.registerButton.setOnClickListener {
             binding.progressBar.visibility= View.VISIBLE
 
-            val name = binding.nameEditText.text.toString()
+
             val email = binding.emailEditText.text.toString()
             val password = binding.passwordEditText.text.toString()
+
             if (email.isEmpty() || password.isEmpty()) {
                 Toast.makeText(this, "E-mail or password empty", Toast.LENGTH_LONG).show()
                binding.progressBar.visibility= View.INVISIBLE
+
 
             } else {
                 auth.createUserWithEmailAndPassword(email, password).addOnSuccessListener {
@@ -54,6 +67,8 @@ class RegisterActivity : AppCompatActivity() {
                     val intent = Intent(this@RegisterActivity, LoginActivity::class.java)
                     startActivity(intent)
                     binding.progressBar.visibility= View.INVISIBLE
+
+
 
                 }.addOnFailureListener {
                     Toast.makeText(this@RegisterActivity, it.localizedMessage, Toast.LENGTH_LONG)

@@ -1,10 +1,9 @@
 package com.example.e_commerce_application.ui.fragments.user
 
 import android.os.Bundle
+import android.util.Log
+import android.view.*
 import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
 import androidx.navigation.fragment.findNavController
 import com.example.e_commerce_application.R
 import com.example.e_commerce_application.databinding.FragmentUserBinding
@@ -26,7 +25,7 @@ class UserFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         // Inflate the layout for this fragment
         _binding = FragmentUserBinding.inflate(inflater, container, false)
         val view = binding.root
@@ -41,8 +40,19 @@ class UserFragment : Fragment() {
         // seeFavorites
         SeeFavorites()
 
+        // set menu
+        setHasOptionsMenu(true)
+
+
+
+
+
+
         return view
     }
+
+
+
 
     private fun getUserEmail(){
         val currentUserEmail= auth.currentUser?.email
@@ -60,5 +70,19 @@ class UserFragment : Fragment() {
         }
     }
 
+
+    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
+        inflater.inflate(R.menu.userfragmentmenu,menu)
+        super.onCreateOptionsMenu(menu, inflater)
+    }
+
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        if(item.itemId==R.id.signoutmenu){
+            auth.signOut()
+            findNavController().navigate(R.id.action_userFragment_to_loginActivity)
+        }
+        return super.onOptionsItemSelected(item)
+    }
 
 }
