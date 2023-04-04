@@ -2,6 +2,13 @@
 
 -I have developed  a fully functional e-commerce app named OnlineBazaar. 
 
+# APP DEMO
+
+# Authentication 
+![onlinebazaar1](https://user-images.githubusercontent.com/64928807/229808398-b628bbec-7c5f-455b-9645-eab184c8f846.gif)
+
+
+
 
 # Architecture
 
