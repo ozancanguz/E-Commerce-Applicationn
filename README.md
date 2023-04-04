@@ -4,8 +4,11 @@
 
 # APP DEMO
 
-# Authentication 
 ![onlinebazaar1](https://user-images.githubusercontent.com/64928807/229808398-b628bbec-7c5f-455b-9645-eab184c8f846.gif)
+![onlinebazaar2](https://user-images.githubusercontent.com/64928807/229808548-18944e98-1f75-41e5-bec8-fe44d6cda8e5.gif)
+
+
+
 
 
 
