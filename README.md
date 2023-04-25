@@ -8,6 +8,8 @@
 ![3-sign up screen](https://user-images.githubusercontent.com/64928807/234282580-5b7bf514-8308-46ec-9cdd-360bfdcb0052.PNG)
 ![4-product list](https://user-images.githubusercontent.com/64928807/234282604-35b61551-1e10-415f-8247-975fe60e0f0b.PNG)
 ![5-favorites screen](https://user-images.githubusercontent.com/64928807/234282685-63ceebf7-8bc1-42c5-9074-eb71deb2b426.PNG)
+![6-user settings screen](https://user-images.githubusercontent.com/64928807/234282794-ddca92b1-ad08-4d7e-ace7-61e22d7c7710.PNG)
+
 
 
 # APP DEMO
