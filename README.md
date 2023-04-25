@@ -2,6 +2,14 @@
 
 -I have developed  a fully functional e-commerce app named OnlineBazaar. 
 
+# SCREENSHOTS
+![1-splash screen](https://user-images.githubusercontent.com/64928807/234282439-d4f4b811-48ef-4357-b8bb-ce2652e2b28e.PNG)
+![2-login screen](https://user-images.githubusercontent.com/64928807/234282519-52fde6ac-12b6-4a75-9d69-70bd6da99d9d.PNG)
+![3-sign up screen](https://user-images.githubusercontent.com/64928807/234282580-5b7bf514-8308-46ec-9cdd-360bfdcb0052.PNG)
+![4-product list](https://user-images.githubusercontent.com/64928807/234282604-35b61551-1e10-415f-8247-975fe60e0f0b.PNG)
+![5-favorites screen](https://user-images.githubusercontent.com/64928807/234282685-63ceebf7-8bc1-42c5-9074-eb71deb2b426.PNG)
+
+
 # APP DEMO
 
 ![onlinebazaar1](https://user-images.githubusercontent.com/64928807/229808398-b628bbec-7c5f-455b-9645-eab184c8f846.gif)
